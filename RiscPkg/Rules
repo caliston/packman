@@ -11,18 +11,19 @@ pkg:
 	mkdir -p Temp/RiscPkg
 	mkdir -p $(INSTALL_TO)
 	cp RiscPkg/Copyright Temp/RiscPkg
-	svn export SysVars Temp/SysVars
-	svn export Sprites Temp/Sprites
-	svn export !PackMan $(INSTALL_TO)/!PackMan
-	cp !PackMan/!RunImage $(INSTALL_TO)/!PackMan
+	cp -a SysVars Temp/SysVars
+	cp -a Sprites Temp/Sprites
+	cp -a !PackMan $(INSTALL_TO)/!PackMan
+	cp !PackMan/!RunImage,ff8 $(INSTALL_TO)/!PackMan
 	make -C Temp -f ../RiscPkg/Rules $(PACKAGES)
 	rm -rf Temp
 
 .PHONY: $(PACKAGES)
 $(PACKAGES): %:
-	riscpkg-gencontrol $(firstword $(subst _, ,$@)) < ../RiscPkg/Control > RiscPkg/Control
-	rm -f ../RiscPkg/$@
-	zip -r ../RiscPkg/$@ * -i@../RiscPkg/$(firstword $(subst _, ,$@)).inc
+#	../../RiscPkg-GenControl/\!RiscPkg-GenControl/riscpkg-gencontrol $(firstword $(subst _, ,$@)) < ../RiscPkg/Control > RiscPkg/Control
+	cp ../Control RiscPkg/
+	rm -f ../RiscPkg/$@.zip
+	riscos-zip -, -r ../RiscPkg/$@.zip * -i@../RiscPkg/$(firstword $(subst _, ,$@)).inc
 
 
 build:
