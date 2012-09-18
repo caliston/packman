@@ -1,4 +1,6 @@
-# This would not normally be the best distribution for new users, but at
-# the time of writing it is the only one available.
-
-pkg http://www.riscpkg.org/pkg/Unstable
+# This distribution is aimed at users of the Raspberry Pi
+# It may contain software not suitable for other RISC OS platforms
+ 
+pkg http://packages.riscosopen.org/packages/pkg/raspberrypi-system
+pkg http://packages.riscosopen.org/packages/pkg/raspberrypi-programs-armv5
+pkg http://packages.riscosopen.org/packages/pkg/raspberrypi-programs-armv7
