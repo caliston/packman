@@ -1,4 +1,7 @@
 #!/bin/sh
+cd ../tbx && \
+../../../../gccsdk412/env/ro-make clean &&\
+../../../../gccsdk412/env/ro-make -j8 &&\
 cd ../LibPkg/\!LibPkg && \
 ../../../../../gccsdk412/env/ro-make clean &&\
 ../../../../../gccsdk412/env/ro-make -j8 &&\
