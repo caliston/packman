@@ -18,6 +18,3 @@ popd
 #rsync -av autobuilder_website/ tmarkettos@packages.riscosopen.org:/var/www/packages/
 scp RiscPkg/PackMan_0.7-4.zip tmarkettos@packages.riscosopen.org:gccsdk412/autobuilder/autobuilder_packages/Admin/
 ssh tmarkettos@packages.riscosopen.org "cd gccsdk412/autobuilder; ./build-website; mv autobuilder_website/pkg/autobuilt autobuilder_website/pkg/raspberrypi-system; rsync -av autobuilder_website/ /var/www/packages/"
-
-
- 
